@@ -2,43 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
-    <title>Supplementary Materials</title>
+    <title>PoseAnything: Universal Pose-guided Video Generation - Supplementary</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    
     <style>
-        body { font-family: Arial, sans-serif; margin: 0 auto; max-width: 1200px; padding: 20px; color: #333; }
-        h1 { text-align: center; }
-        h2 {
-            text-align: center; /* 确保 H2 文字居中 */
-            border-bottom: 2px solid #ccc; 
-            padding-bottom: 10px; 
-            margin-top: 40px; 
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 32px 14px 32px 14px;
+            background: #f5f7fa;
+            color: #263247;
+            min-height: 100vh;
+            box-shadow: 0 0 32px 0 rgba(30, 50, 80, 0.08);
+            border-radius: 14px;
         }
-        .intro { text-align: left; margin-bottom: 40px; font-size: 1.1em; line-height: 1.6; }
-        .section-description { font-size: 0.95em; color: #555; margin-top: -5px; margin-bottom: 25px; }
+
+        h1 {
+            text-align: center;
+            font-size: 2.7em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #263247;
+            margin-bottom: 10px;
+            margin-top: 8px;
+        }
+        .publication-authors {
+            font-family: 'Google Sans', 'Noto Sans', sans-serif;
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 0.6em;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+            line-height: 0.8; /* 行间距小一点 */
+        }
+        .publication-authors a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        .publication-authors a:hover {
+            color: #1565c0;
+            text-decoration: underline;
+        }
+        .author-block {
+            margin-right: 0.4em;
+        }
+        h2 {
+            font-family: 'Google Sans', 'Noto Sans', sans-serif;
+            text-align: center;
+            font-size: 2em;
+            font-weight: 700; /* 加粗 */
+            border-bottom: 2px solid #e0e7ef;
+            padding-bottom: 7px;
+            margin-top: 54px;
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+            color: #263247;
+        }
+        .intro {
+            text-align: left;
+            margin-bottom: 40px;
+            font-size: 1.18em;
+            line-height: 1.8;
+            background: #eaf1fb;
+            border-left: 5px solid #008b8b;
+            padding: 16px 20px;
+            border-radius: 6px;
+            color: #263247;
+        }
+        .section-description {
+            font-size: 1em;
+            color: #5371b1;
+            margin-top: -7px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            background: #f3f7fc;
+            padding: 14px 15px 7px 15px;
+            border-radius: 5px;
+            border-left: 3px solid #1976d2;
+        }
         .comparison-prompt {
             width: 100%;
             text-align: center;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-top: 30px;
-            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 1.18em;
+            margin-top: 38px;
+            margin-bottom: 7px;
             padding: 0 10px;
             box-sizing: border-box;
+            color: #222;
+            letter-spacing: 0.5px;
         }
-        .video-section { margin-bottom: 30px; }
-
+        .video-section {
+            margin-bottom: 36px;
+            padding-top: 10px;
+        }
         .video-row,
         .video-row-2-center,
         .video-row-4-center {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 18px;
             margin: 0;
             align-items: flex-start;
             justify-content: center;
         }
-        .video-row-2-center { flex-direction: row; margin-bottom: 10px; }
-        .video-row-4-center { flex-direction: row; }
         .video-container {
             flex: 1 0 0;
             margin: 0;
@@ -47,45 +122,189 @@
             display: flex;
             flex-direction: column;
             max-width: 180px;
+            background: #f7fafc;
+            border-radius: 9px;
+            box-shadow: 0 2px 10px 0 rgba(40, 60, 120, 0.04);
+            padding: 7px 6px 3px 6px;
+            border: 1.7px solid #e3eaf3;
+            transition: transform 0.15s;
         }
-        .video-fixed-ratio { width: 100%; aspect-ratio: 2 / 3; object-fit: contain; background-color: #000; border: 1px solid #ddd; }
-        .video-auto-ratio { width: 100%; height: auto; object-fit: contain; background-color: #000; border: 1px solid #ddd; }
-        .video-square-ratio { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background-color: #000; border: 1px solid #ddd; }
-        .video-portrait-ratio { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background-color: #000; border: 1px solid #ddd; }
-        .video-original-size { max-width: 100%; height: auto; object-fit: contain; background-color: #000; border: 1px solid #ddd; }
-        .video-container p { margin-top: 8px; font-size: 14px; color: #555; word-wrap: break-word; }
-
+        .video-container:hover {
+            transform: translateY(-4px) scale(1.028);
+            box-shadow: 0 6px 32px 0 #1976d216;
+            border-color: #008b8b;
+        }
+        video {
+            border-radius: 7px;
+            background: #e3eaf3;
+        }
+        .video-fixed-ratio,
+        .video-auto-ratio,
+        .video-square-ratio,
+        .video-portrait-ratio,
+        .video-original-size {
+            width: 100%;
+            background-color: #e7ebf0;
+            border: 1.5px solid #c5d8ff44;
+        }
+        .video-fixed-ratio { aspect-ratio: 2 / 3; object-fit: contain; }
+        .video-auto-ratio { height: auto; object-fit: contain; }
+        .video-square-ratio { aspect-ratio: 1 / 1; object-fit: contain; }
+        .video-portrait-ratio { aspect-ratio: 16 / 9; object-fit: contain; }
+        .video-original-size { aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+        .video-container p {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #1976d2;
+            word-wrap: break-word;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
         .non-human-section .video-container { max-width: 320px !important; }
         .non-human-section .video-portrait-ratio { max-width: 320px !important; }
-
-        /* 只控制 Demo Video 的宽度 */
+        /* Demo Video宽度 */
         .demo-section .video-container {
             max-width: 800px;
             margin: 0 auto;
+            background: #f7fafc;
+            border: none;
+            box-shadow: 0 2px 20px 0 #008b8b22;
         }
-
         .demo-section .video-original-size {
             width: 100%;
             aspect-ratio: 16 / 9;
             object-fit: cover;
             display: block;
-            background: #000;
+            background: #e3eaf3;
+            /* border: 2px solid #008b8b;  这一行已删除 */
         }
-
+        /* 播放按钮样式 */
         .play-row-btn {
             display: inline-block;
-            margin-bottom: 10px;
-            background: #6c757d; /* 灰色背景 (Bootstrap secondary color) */
-            color: #ffffff; /* 白色文本 */
+            margin-bottom: 12px;
+            margin-top: 7px;
+            background: linear-gradient(90deg, #008b8b 10%, #1976d2 90%);
+            color: #fff;
             border: none;
-            border-radius: 4px;
-            padding: 5px 18px;
+            border-radius: 22px;
+            padding: 8px 28px;
             cursor: pointer;
-            font-size: 15px;
-            transition: background 0.2s ease; /* 添加平滑过渡 */
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 10px 0 #008b8b11;
+            transition: background 0.2s, transform 0.13s;
+            outline: none;
+            border: 1.5px solid #008b8b;
         }
-        .play-row-btn:hover { 
-            background: #495057; /* 悬停时深灰色 */
+        .play-row-btn:hover {
+            background: linear-gradient(90deg, #1976d2 15%, #008b8b 85%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+            border-color: #1976d2;
+        }
+        /* 论文/代码等外链按钮区 */
+        .publication-links {
+            display: inline-flex;
+            gap: 18px;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+        .link-block {
+            display: inline-block;
+        }
+        .external-link.button {
+            display: inline-flex;
+            align-items: center;
+            background: #232323;
+            color: #fff;
+            border: 2px solid #232323;
+            border-radius: 999px;
+            font-size: 1.08em;
+            font-weight: 600;
+            padding: 7px 22px;
+            margin: 0 4px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px 0 #23232318;
+            transition: background 0.17s, color 0.17s, border-color 0.17s, box-shadow 0.17s;
+        }
+        .external-link.button:hover {
+            background: #444;
+            color: #fff;
+            border-color: #111;
+            box-shadow: 0 4px 16px 0 #23232316;
+            text-decoration: none;
+        }
+        .external-link .icon {
+            margin-right: 9px;
+            font-size: 1.16em;
+            display: flex;
+            align-items: center;
+        }
+        /* 保证按钮父级居中 */
+        .column.has-text-centered {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            margin-top: 15px;
+        }
+        /* 响应式适配 */
+        @media (max-width: 900px) {
+            .video-row,
+            .video-row-2-center,
+            .video-row-4-center {
+                gap: 11px;
+            }
+            .video-container, .non-human-section .video-container {
+                max-width: 98vw !important;
+                min-width: 120px !important;
+            }
+            .demo-section .video-container {
+                max-width: 99vw;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 7px 1vw;
+            }
+            h1 {
+                font-size: 1.25em;
+            }
+            h2 {
+                font-size: 1.05em;
+            }
+            .intro, .section-description {
+                font-size: 0.97em;
+            }
+            .video-container, .non-human-section .video-container {
+                padding: 3px 0px 3px 0px;
+            }
+            .play-row-btn {
+                font-size: 0.93em;
+                padding: 7px 16px;
+            }
+            .publication-links {
+                flex-direction: column;
+                gap: 10px;
+                width: 80%;
+            }
+            .external-link.button {
+                font-size: 0.97em;
+                padding: 6px 14px;
+                width: 100%;
+                justify-content: center;
+            }
+            .authors-title {
+                font-size: 1.02em;
+            }
+            .publication-authors {
+                font-size: 0.97em;
+                gap: 7px 8px;
+            }
+            .publication-affiliation {
+                font-size: 0.93em;
+            }
         }
     </style>
     <script>
@@ -112,6 +331,41 @@
 </head>
 <body>
     <h1>PoseAnything: Universal Pose-guided Video Generation with Part-aware Temporal Coherence</h1>
+    <!-- 作者列表 -->
+    <div class="is-size-5 publication-authors" style="font-family: 'Google Sans', 'Noto Sans', sans-serif;">
+        <span class="author-block"><a href="./">Ruiyan Wang</a>,</span>
+        <span class="author-block"><a href="https://sjtuplayer.github.io/">Teng Hu</a>,</span>
+        <span class="author-block"><a href="./">Kaihui Huang</a>,</span>
+        <span class="author-block"><a href="./">Zihan Su</a>,</span>
+        <span class="author-block"><a href="https://yiranran.github.io/">Ran Yi</a></span>
+    </div>
+      
+    <!-- 单位 -->
+    <div class="is-size-5 publication-authors" style="font-family: 'Google Sans', 'Noto Sans', sans-serif;">
+        <span class="author-block">Shanghai Jiao Tong University</span>
+    </div>
+  
+    <div class="column has-text-centered">
+        <div class="publication-links">
+            <span class="link-block">
+                <a href="https://www.arxiv.com" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                         <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                </a>
+            </span>
+            <span class="link-block">
+                <a href="https://www.github.com" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Github</span>
+                </a>
+            </span>
+        </div>
+    </div>
+    
     <p class="intro">On this page, we present a demo video and detailed comparative results showcasing the performance of our method against state-of-the-art controllable video generation approaches. We conduct the comparative experiments on data from two distinct domains: human and non-human, highlighting our model's generalization across diverse subject categories.</p>
 
     <div class="video-section demo-section">
@@ -291,491 +545,493 @@
     </div>
     <div class="video-section">
         <h2>Non-Human Data Comparison</h2>
-        <p class="section-description">This section provides comparison with state-of-the-art methods on non-human data. Each row corresponds to a single test case. Since ATI, SG-I2V, and Tora are trajectory-guided video generation methods, we manually constructed the input control information for Tora and SG-I2V, and utilized ATI's self-proposed control information extraction mechanism for its input.             Furthermore, given that the default generation frame counts of SG-I2V and Tora are less than the default frame count 81, used by our PoseAnything and ATI methods, we align the frame count of all videos to 81 frames by duplicating the last frame to ensure a intuitive comparison.            The results indicate that our PoseAnything model demonstrates a significant advantage in precise object pose control, whereas competing methods struggle to achieve frame-level pose alignment and tend to generate hallucinations during large-range motion synthesis.</p>
+        <p class="section-description">This section provides comparison with state-of-the-art methods on non-human data. Each row corresponds to a single test case. Since ATI, SG-I2V, and Tora are trajectory-guided video generation methods, we manually constructed the input control information for Tora and SG-I2V, and utilized ATI's self-proposed control information extraction mechanism for its input. Furthermore, given that the default generation frame counts of SG-I2V and Tora are less than the default frame count 81, used by our PoseAnything and ATI methods, we align the frame count of all videos to 81 frames by duplicating the last frame to ensure a intuitive comparison. The results indicate that our PoseAnything model demonstrates a significant advantage in precise object pose control, whereas competing methods struggle to achieve frame-level pose alignment and tend to generate hallucinations during large-range motion synthesis.</p>
+        
+        <!-- 非人类数据部分（保持你的原有结构） -->
         <p class="comparison-prompt">Case 1</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-6','video-row-nonhuman-4-7'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-6">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case10.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-6','video-row-nonhuman-4-7'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-6">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case10.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-7">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case10.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-7">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case10.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case10.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case10.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case10.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
         <p class="comparison-prompt">Case 2</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-8','video-row-nonhuman-4-9'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-8">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case4.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-8','video-row-nonhuman-4-9'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-8">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case4.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-9">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case4.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case4.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case4.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case4.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 3</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-10','video-row-nonhuman-4-11'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-10">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case5.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case5.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-9">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case4.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-11">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case5.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
+            <p class="comparison-prompt">Case 3</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-10','video-row-nonhuman-4-11'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-10">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case5.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case5.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case5.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 4</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-12','video-row-nonhuman-4-13'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-12">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case6.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case6.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-13">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case6.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case6.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case6.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case6.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-11">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case5.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-    </div>
-        <p class="comparison-prompt">Case 5</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-14','video-row-nonhuman-4-15'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-14">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case7.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
+            <p class="comparison-prompt">Case 4</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-12','video-row-nonhuman-4-13'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-12">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case7.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-15">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case7.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case7.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case7.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case7.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 6</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-16','video-row-nonhuman-4-17'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-16">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case8.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case8.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-13">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case6.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-17">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case8.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
+            <p class="comparison-prompt">Case 5</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-14','video-row-nonhuman-4-15'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-14">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case8.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case8.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case8.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 7</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-18','video-row-nonhuman-4-19'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-18">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case91.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case91.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-19">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case91.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case91.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case91.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case91.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-15">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case7.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-    </div>
-        <p class="comparison-prompt">Case 8</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-20','video-row-nonhuman-4-21'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-20">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case92.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
+            <p class="comparison-prompt">Case 6</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-16','video-row-nonhuman-4-17'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-16">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case92.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-21">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case92.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case92.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case92.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case92.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 9</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-22','video-row-nonhuman-4-23'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-22">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case93.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case93.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-17">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case8.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-23">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case93.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
+            <p class="comparison-prompt">Case 7</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-18','video-row-nonhuman-4-19'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-18">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case93.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case93.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case93.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
-            </div>
-        </div>
-    </div>
-        <p class="comparison-prompt">Case 10</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-24','video-row-nonhuman-4-25'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-24">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case94.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case94.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
-            </div>
-        </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-25">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case94.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case94.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case94.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case94.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-19">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case91.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-    </div>
-        <p class="comparison-prompt">Case 11</p>
-    <div class="non-human-section">
-        <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-26','video-row-nonhuman-4-27'])">▶ Play All Videos in Row</button>
-        <div class="video-row-2-center" id="video-row-nonhuman-2-26">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/gt/case97.mp4" type="video/mp4">
-                </video>
-                <p>GT</p>
+            <p class="comparison-prompt">Case 8</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-20','video-row-nonhuman-4-21'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-20">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/skeleton/case97.mp4" type="video/mp4">
-                </video>
-                <p>Pose</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-21">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case92.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-        <div class="video-row-4-center" id="video-row-nonhuman-4-27">
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ours/case97.mp4" type="video/mp4">
-                </video>
-                <p>Ours</p>
+            <p class="comparison-prompt">Case 9</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-22','video-row-nonhuman-4-23'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-22">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
             </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/ATI/case97.mp4" type="video/mp4">
-                </video>
-                <p>ATI</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/SG-I2V/case97.mp4" type="video/mp4">
-                </video>
-                <p>SG-I2V</p>
-            </div>
-            <div class="video-container">
-                <video class="video-portrait-ratio" controls muted loop>
-                    <source src="pose/non-human/tora/case97.mp4" type="video/mp4">
-                </video>
-                <p>Tora</p>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-23">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case93.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-</body>
-</html>
+            <p class="comparison-prompt">Case 10</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-24','video-row-nonhuman-4-25'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-24">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
+            </div>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-25">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case94.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
+            </div>
+        </div>
+            <p class="comparison-prompt">Case 11</p>
+        <div class="non-human-section">
+            <button class="play-row-btn" onclick="playRows(['video-row-nonhuman-2-26','video-row-nonhuman-4-27'])">▶ Play All Videos in Row</button>
+            <div class="video-row-2-center" id="video-row-nonhuman-2-26">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/gt/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>GT</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/skeleton/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>Pose</p>
+                </div>
+            </div>
+            <div class="video-row-4-center" id="video-row-nonhuman-4-27">
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ours/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>Ours</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/ATI/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>ATI</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/SG-I2V/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>SG-I2V</p>
+                </div>
+                <div class="video-container">
+                    <video class="video-portrait-ratio" controls muted loop>
+                        <source src="pose/non-human/tora/case97.mp4" type="video/mp4">
+                    </video>
+                    <p>Tora</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+    </html>

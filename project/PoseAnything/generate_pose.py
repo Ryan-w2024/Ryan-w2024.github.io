@@ -5,7 +5,7 @@ import webbrowser
 # --- 配置区域 ---
 
 VIDEOS_ROOT_DIR = 'pose'
-OUTPUT_HTML_FILE = 'poseanything.html'
+OUTPUT_HTML_FILE = 'index.html'
 ANNOTATIONS_JSON_PATH = 'anno.json'
 
 PAGE_TITLE = "PoseAnything: Universal Pose-guided Video Generation with Part-aware Temporal Coherence"
@@ -88,7 +88,7 @@ def generate_html(annotations):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
-    <title>Supplementary Materials</title>
+    <title>PoseAnything</title>
     <style>
         body {{ font-family: Arial, sans-serif; margin: 0 auto; max-width: 1200px; padding: 20px; color: #333; }}
         h1 {{ text-align: center; }}
