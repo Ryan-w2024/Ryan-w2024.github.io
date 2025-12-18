@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PoseAnything: Universal Pose-guided Video Generation - Supplementary</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    
     <style>
         body {
             font-family: 'Roboto', Arial, sans-serif;
@@ -41,7 +38,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             margin-bottom: 0.6em;
             font-weight: normal;
             letter-spacing: 0.5px;
-            line-height: 0.9; /* 行间距小一点 */
+            line-height: 0.9;
         }
         .publication-authors a {
             color: #1976d2;
@@ -58,7 +55,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             font-family: 'Google Sans', 'Noto Sans', sans-serif;
             text-align: center;
             font-size: 2em;
-            font-weight: 700; /* 加粗 */
+            font-weight: 700;
             border-bottom: 2px solid #e0e7ef;
             padding-bottom: 7px;
             margin-top: 54px;
@@ -77,6 +74,30 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             border-radius: 6px;
             color: #263247;
         }
+        /* 新增：摘要文本样式 */
+        .abstract-content {
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #445a7d;
+            padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        /* 新增：框架图样式 */
+        .framework-container {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .framework-img {
+            width: 95%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e0e7ef;
+        }
+
         .section-description {
             font-size: 1em;
             color: #5371b1;
@@ -104,9 +125,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             margin-bottom: 36px;
             padding-top: 10px;
         }
-        .video-row,
-        .video-row-2-center,
-        .video-row-4-center {
+        .video-row, .video-row-2-center, .video-row-4-center {
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
@@ -138,20 +157,9 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             border-radius: 7px;
             background: #e3eaf3;
         }
-        .video-fixed-ratio,
-        .video-auto-ratio,
-        .video-square-ratio,
-        .video-portrait-ratio,
-        .video-original-size {
-            width: 100%;
-            background-color: #e7ebf0;
-            border: 1.5px solid #c5d8ff44;
-        }
-        .video-fixed-ratio { aspect-ratio: 2 / 3; object-fit: contain; }
-        .video-auto-ratio { height: auto; object-fit: contain; }
-        .video-square-ratio { aspect-ratio: 1 / 1; object-fit: contain; }
-        .video-portrait-ratio { aspect-ratio: 16 / 9; object-fit: contain; }
-        .video-original-size { aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+        .video-original-size { aspect-ratio: 16 / 9; object-fit: cover; display: block; width: 100%; }
+        .video-square-ratio { aspect-ratio: 1 / 1; object-fit: contain; width: 100%; }
+        
         .video-container p {
             margin-top: 8px;
             font-size: 15px;
@@ -160,9 +168,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             font-weight: 500;
             letter-spacing: 0.2px;
         }
-        .non-human-section .video-container { max-width: 320px !important; }
-        .non-human-section .video-portrait-ratio { max-width: 320px !important; }
-        /* Demo Video宽度 */
+
         .demo-section .video-container {
             max-width: 800px;
             margin: 0 auto;
@@ -170,15 +176,6 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             border: none;
             box-shadow: 0 2px 20px 0 #008b8b22;
         }
-        .demo-section .video-original-size {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            display: block;
-            background: #e3eaf3;
-            /* border: 2px solid #008b8b;  这一行已删除 */
-        }
-        /* 播放按钮样式 */
         .play-row-btn {
             display: inline-block;
             margin-bottom: 12px;
@@ -203,15 +200,11 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             transform: translateY(-2px) scale(1.03);
             border-color: #1976d2;
         }
-        /* 论文/代码等外链按钮区 */
         .publication-links {
             display: inline-flex;
             gap: 18px;
             justify-content: center;
             margin: 0 auto 20px auto;
-        }
-        .link-block {
-            display: inline-block;
         }
         .external-link.button {
             display: inline-flex;
@@ -225,23 +218,12 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             padding: 7px 22px;
             margin: 0 4px;
             text-decoration: none;
-            box-shadow: 0 2px 6px 0 #23232318;
-            transition: background 0.17s, color 0.17s, border-color 0.17s, box-shadow 0.17s;
+            transition: background 0.17s;
         }
         .external-link.button:hover {
             background: #444;
-            color: #fff;
             border-color: #111;
-            box-shadow: 0 4px 16px 0 #23232316;
-            text-decoration: none;
         }
-        .external-link .icon {
-            margin-right: 9px;
-            font-size: 1.16em;
-            display: flex;
-            align-items: center;
-        }
-        /* 保证按钮父级居中 */
         .column.has-text-centered {
             width: 100%;
             display: flex;
@@ -249,90 +231,26 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
             margin-bottom: 25px;
             margin-top: 15px;
         }
-        /* 响应式适配 */
-        @media (max-width: 900px) {
-            .video-row,
-            .video-row-2-center,
-            .video-row-4-center {
-                gap: 11px;
-            }
-            .video-container, .non-human-section .video-container {
-                max-width: 98vw !important;
-                min-width: 120px !important;
-            }
-            .demo-section .video-container {
-                max-width: 99vw;
-            }
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 7px 1vw;
-            }
-            h1 {
-                font-size: 1.25em;
-            }
-            h2 {
-                font-size: 1.05em;
-            }
-            .intro, .section-description {
-                font-size: 0.97em;
-            }
-            .video-container, .non-human-section .video-container {
-                padding: 3px 0px 3px 0px;
-            }
-            .play-row-btn {
-                font-size: 0.93em;
-                padding: 7px 16px;
-            }
-            .publication-links {
-                flex-direction: column;
-                gap: 10px;
-                width: 80%;
-            }
-            .external-link.button {
-                font-size: 0.97em;
-                padding: 6px 14px;
-                width: 100%;
-                justify-content: center;
-            }
-            .authors-title {
-                font-size: 1.02em;
-            }
-            .publication-authors {
-                font-size: 0.97em;
-                gap: 7px 8px;
-            }
-            .publication-affiliation {
-                font-size: 0.93em;
-            }
-        }
     </style>
     <script>
-        // 播放某一行所有视频
         function playRow(rowId) {
             var row = document.getElementById(rowId);
             if (row) {
                 var videos = row.getElementsByTagName('video');
                 for (let i = 0; i < videos.length; i++) {
                     try {
-                        videos[i].currentTime = 0; // 从头播放
+                        videos[i].currentTime = 0;
                         videos[i].play();
                     } catch(e) {}
                 }
-            }
-        }
-        // 播放多行
-        function playRows(rowIds) {
-            for (var idx=0; idx<rowIds.length; idx++) {
-                playRow(rowIds[idx]);
             }
         }
     </script>
 </head>
 <body>
     <h1>PoseAnything: Universal Pose-guided Video Generation with Part-aware Temporal Coherence</h1>
-    <!-- 作者列表 -->
-    <div class="is-size-5 publication-authors" style="font-family: 'Google Sans', 'Noto Sans', sans-serif;">
+    
+    <div class="is-size-5 publication-authors">
         <span class="author-block"><a href="./">Ruiyan Wang</a>,</span>
         <span class="author-block"><a href="https://sjtuplayer.github.io/">Teng Hu</a>,</span>
         <span class="author-block"><a href="./">Kaihui Huang</a>,</span>
@@ -341,26 +259,21 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
         <span class="author-block"><a href="./">Lizhuang Ma</a></span>
     </div>
       
-    <!-- 单位 -->
-    <div class="is-size-5 publication-authors" style="font-family: 'Google Sans', 'Noto Sans', sans-serif;">
+    <div class="is-size-5 publication-authors">
         <span class="author-block">Shanghai Jiao Tong University</span>
     </div>
   
     <div class="column has-text-centered">
         <div class="publication-links">
             <span class="link-block">
-                <a href="https://www.arxiv.com" class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                         <i class="ai ai-arxiv"></i>
-                    </span>
+                <a href="http://arxiv.org/abs/2512.13465" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
                     <span>arXiv</span>
                 </a>
             </span>
             <span class="link-block">
                 <a href="https://github.com/Ryan-w2024/PoseAnything.git" class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                        <i class="fab fa-github"></i>
-                    </span>
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Github</span>
                 </a>
             </span>
@@ -368,6 +281,24 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
     </div>
     
     <p class="intro">On this page, we present a demo video and detailed comparative results showcasing the performance of our method against state-of-the-art controllable video generation approaches. We conduct the comparative experiments on data from two distinct domains: human and non-human, highlighting our model's generalization across diverse subject categories.</p>
+
+    <div class="video-section">
+        <h2>Abstract</h2>
+        <div class="abstract-content">
+            Pose-guided video generation refers to controlling the motion of subjects in generated video through a sequence of poses. It enables precise control over subject motion and has important applications in animation. However, current pose-guided video generation methods are limited to accepting only human poses as input, thus generalizing poorly to pose of other subjects. To address this issue, we propose PoseAnything, the first universal pose-guided video generation framework capable of handling both human and non-human characters,
+            supporting arbitrary skeletal inputs. To enhance consistency preservation during motion, we introduce Part-aware Temporal Coherence Module, which divides the subject into different parts, establishes part correspondences, and computes cross-attention between corresponding parts across frames to achieve fine-grained part-level consistency. Additionally, we propose Subject and Camera Motion Decoupled CFG, a novel guidance strategy that, for the first time, enables independent camera movement control in pose-guided video generation, by separately injecting subject and camera motion control information into the positive and negative anchors of CFG. Furthermore, we present XPose, a high-quality public dataset containing 50,000 non-human pose-video pairs, along with an automated pipeline for annotation and filtering. Extensive experiments demonstrate that Pose-Anything significantly outperforms state-of-the-art methods in both effectiveness and generalization.
+        </div>
+    </div>
+
+    <div class="video-section">
+        <h2>Framework</h2>
+        <!-- <div class="section-description" style="text-align: center; border-left: none;">
+            Overview of the PoseAnything pipeline: Integrating 3D Memory with skeleton-guided interactive generation.
+        </div> -->
+        <div class="framework-container">
+            <img src="image/framework.png" alt="PoseAnything Framework" class="framework-img">
+        </div>
+    </div>
 
     <div class="video-section demo-section">
         <h2>Demo Video</h2>
